@@ -96,5 +96,7 @@ Pastikan Anda memiliki hal-hal berikut terinstal di sistem Anda:
     Aplikasi akan tersedia di `http://127.0.0.1:8000`.
 
     Selamat Aplikasi sudah bisa di jalankan!!!
+    <img width="1204" height="636" alt="image" src="https://github.com/user-attachments/assets/e798cef2-82c2-4bb5-8613-bb5f65fec5b4" />
+
 
 -----
