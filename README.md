@@ -1,61 +1,107 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+### Panduan Instalasi Aplikasi Laravel "Pemantauan Mata Air"
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Ikuti langkah-langkah di bawah ini untuk menginstal dan menjalankan aplikasi "Pemantauan Mata Air" di lingkungan pengembangan lokal Anda.
 
-## About Laravel
+#### Prasyarat
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Pastikan Anda memiliki hal-hal berikut terinstal di sistem Anda:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  * **PHP:** Versi 8.1 atau lebih tinggi (disarankan).
+  * **Composer:** Manajer dependensi PHP.
+  * **MySQL/MariaDB:** Sistem manajemen database.
+  * **XAMPP/Laragon/WAMP/MAMP:** Lingkungan pengembangan web lokal (sudah ada XAMPP).
+  * **Git:** Untuk mengkloning repositori.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Langkah-langkah Instalasi
 
-## Learning Laravel
+1.  **Kloning Repositori:**
+    Buka terminal atau Git Bash Anda, lalu kloning repositori proyek dari GitHub:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    ```bash
+    git clone https://github.com/khikammaulana18/pemantauan_mata_air.git
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2.  **Navigasi ke Direktori Proyek:**
+    Masuk ke dalam folder proyek yang baru saja Anda kloning:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    cd pemantauan_mata_air
+    ```
 
-## Laravel Sponsors
+3.  **Instal Dependensi Composer:**
+    Instal semua dependensi PHP yang dibutuhkan oleh proyek menggunakan Composer:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```bash
+    composer install
+    ```
 
-### Premium Partners
+4.  **Konfigurasi File Lingkungan (`.env`):**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+      * Buat salinan file `.env.example` dan beri nama `.env`:
+        ```bash
+        cp .env.example .env
+        # Atau di Windows: copy .env.example .env
+        ```
+      * Buka file `.env` dengan editor teks Anda.
+      * Konfigurasi detail database Anda. Sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` sesuai dengan pengaturan MySQL/MariaDB Anda di XAMPP.
+        ```dotenv
+        APP_NAME="Pemantauan Mata Air"
+        APP_ENV=local
+        APP_KEY=
+        APP_DEBUG=true
+        APP_URL=http://localhost
 
-## Contributing
+        LOG_CHANNEL=stack
+        LOG_LEVEL=debug
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=nama_database_anda_di_xampp # Ganti dengan nama database yang akan Anda buat
+        DB_USERNAME=root # Biasanya 'root' untuk XAMPP
+        DB_PASSWORD= # Kosongkan jika tidak ada password, atau isi jika ada
+        ```
 
-## Code of Conduct
+5.  **Buat Kunci Aplikasi:**
+    Laravel membutuhkan kunci aplikasi yang unik. Jalankan perintah ini untuk membuatnya:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    ```bash
+    php artisan key:generate
+    ```
 
-## Security Vulnerabilities
+6.  **Buat Database dan Impor Data:**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+      * Buka **phpMyAdmin** Anda (biasanya di `http://localhost/phpmyadmin` jika menggunakan XAMPP).
+      * Buat database baru dengan nama yang sama persis dengan yang Anda tulis di `DB_DATABASE` pada file `.env` (misalnya, `pemantauan_mata_air_db`).
+      * Setelah database dibuat, klik nama database tersebut di sidebar kiri phpMyAdmin.
+      * Pilih tab **"Import"**.
+      * Klik tombol **"Choose File"** atau **"Browse"** dan navigasikan ke folder `db` di dalam direktori proyek Anda (`pemantauan_mata_air/db/`).
+      * Pilih file `.sql` database Anda (misalnya, `nama_file_database_anda.sql`).
+      * Gulir ke bawah dan klik tombol **"Go"** atau **"Import"**.
 
-## License
+7.  **Jalankan Migrasi Database (Opsional, jika ada migrasi tambahan):**
+    Jika proyek Anda memiliki migrasi Laravel selain dari file SQL yang diimpor, Anda bisa menjalankannya (meskipun sebagian besar data sudah ada dari impor SQL):
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    php artisan migrate
+    ```
+
+8.  **Jalankan Link Penyimpanan (Storage Link):**
+    Jika aplikasi Anda menyimpan file di direktori `storage/app/public` dan menampilkannya melalui web, Anda perlu membuat symbolic link:
+
+    ```bash
+    php artisan storage:link
+    ```
+
+9.  **Jalankan Aplikasi:**
+    Anda bisa menjalankan aplikasi menggunakan server pengembangan bawaan Laravel:
+
+    ```bash
+    php artisan serve
+    ```
+
+    Aplikasi akan tersedia di `http://127.0.0.1:8000` (atau port lain yang disebutkan).
+
+    Atau, jika Anda sudah mengkonfigurasi virtual host di XAMPP, Anda bisa mengaksesnya melalui URL virtual host Anda.
+
+-----
