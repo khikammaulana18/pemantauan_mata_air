@@ -6,7 +6,7 @@ Ikuti langkah-langkah di bawah ini untuk menginstal dan menjalankan aplikasi "Pe
 
 Pastikan Anda memiliki hal-hal berikut terinstal di sistem Anda:
 
-  * **PHP:** Versi 8.1 atau lebih tinggi (disarankan).
+  * **PHP:** Versi 8.2 atau lebih tinggi (disarankan).
   * **Composer:** Manajer dependensi PHP.
   * **MySQL/MariaDB:** Sistem manajemen database.
   * **XAMPP/Laragon/WAMP/MAMP:** Lingkungan pengembangan web lokal (sudah ada XAMPP).
