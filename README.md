@@ -79,29 +79,22 @@ Pastikan Anda memiliki hal-hal berikut terinstal di sistem Anda:
       * Pilih file `.sql` database Anda (misalnya, `nama_file_database_anda.sql`).
       * Gulir ke bawah dan klik tombol **"Go"** atau **"Import"**.
 
-7.  **Jalankan Migrasi Database (Opsional, jika ada migrasi tambahan):**
-    Jika proyek Anda memiliki migrasi Laravel selain dari file SQL yang diimpor, Anda bisa menjalankannya (meskipun sebagian besar data sudah ada dari impor SQL):
-
-    ```bash
-    php artisan migrate
-    ```
-
-8.  **Jalankan Link Penyimpanan (Storage Link):**
+7.  **Jalankan Link Penyimpanan (Storage Link):**
     Jika aplikasi Anda menyimpan file di direktori `storage/app/public` dan menampilkannya melalui web, Anda perlu membuat symbolic link:
 
     ```bash
     php artisan storage:link
     ```
 
-9.  **Jalankan Aplikasi:**
+8.  **Jalankan Aplikasi:**
     Anda bisa menjalankan aplikasi menggunakan server pengembangan bawaan Laravel:
 
     ```bash
     php artisan serve
     ```
 
-    Aplikasi akan tersedia di `http://127.0.0.1:8000` (atau port lain yang disebutkan).
+    Aplikasi akan tersedia di `http://127.0.0.1:8000`.
 
-    Atau, jika Anda sudah mengkonfigurasi virtual host di XAMPP, Anda bisa mengaksesnya melalui URL virtual host Anda.
+    Selamat Aplikasi sudah bisa di jalankan!!!
 
 -----
